@@ -1,0 +1,19 @@
+@(grades: Set[Grade])
+
+<html>
+	<head>
+		<title>All Records</title>
+	</head>
+	<body>
+	
+		<h1>All Grades</h1>
+		
+		@for(grade <- grades) {
+		<p>Name: @grade.student</p>
+		<p>Course: @grade.title</p>
+		<p>Score: @grade.score</p>
+		<p><br></p>
+		}
+	
+	</body>
+</html>

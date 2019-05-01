@@ -1,0 +1,36 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET    	/									controllers.HomeController.index
+GET    	/sign  								controllers.HomeController.getSign
++ nocsrf
+POST	/sign								controllers.HomeController.postSign
+
+GET		/adminHome							controllers.HomeController.adminHome
+GET		/stuHome							controllers.HomeController.stuHome
+GET		/errorPage							controllers.HomeController.errorPage
+
+
+GET    /explore                     controllers.HomeController.explore
+GET    /tutorial                    controllers.HomeController.tutorial
+
+
+
+# Grade routes start here
+	
+GET	/grades				controllers.HomeController.showAll()
+GET /grades/create	controllers.HomeController.create
+GET /grades/:id		controllers.HomeController.show(id: Integer)
+GET /grades/edit/:id	controllers.HomeController.edit(id: Integer)
+POST /grades/edit	controllers.HomeController.update
+POST	/grades/create	controllers.HomeController.save
+GET	/books/delete/:id controllers.HomeController.destroy(id: Integer)
+
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,0 +1,14 @@
+@(userForm : Form[User])
+@import helper._
+<html>
+	<head>
+	<title>Signin</title>
+	</head>
+	<body>	
+	@helper.form(action=routes.HomeController.postSign()) {
+		@helper.inputText(userForm("username"))
+		@helper.inputText(userForm("password"))
+		<input type="submit" value="Login">
+	}
+	</body>	
+</html>

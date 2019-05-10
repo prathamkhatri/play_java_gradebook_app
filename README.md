@@ -1,4 +1,7 @@
 # Gradebook App using the Play! framework for Java
+This project is the final project for ICSI 410 Introuduction to Databases
+
+A Simple CRUD application
 
 Prerequisites include:
 

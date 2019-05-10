@@ -19,8 +19,9 @@ EclipseKeys.createSrc := EclipseCreateSrc.ValueSet(EclipseCreateSrc.ManagedClass
 // For database connection
 libraryDependencies += javaJdbc
 
+
 libraryDependencies += "mysql" % "mysql-connector-java" % "8.0.15"
-libraryDependencies += "com.h2database" % "h2" % "1.4.192"
+//libraryDependencies += "com.h2database" % "h2" % "1.4.192"
 
 // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
 libraryDependencies += "javax.xml.bind" % "jaxb-api" % "2.3.0"

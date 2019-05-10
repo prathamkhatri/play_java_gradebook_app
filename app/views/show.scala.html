@@ -11,6 +11,9 @@
 		
 		<p>Student Name: @grade.student</p>
 		<p>Score: @grade.score</p>
+		
+		<a href= @routes.HomeController.edit(grade.id)>Edit</a>
+		<a href= @routes.HomeController.destroy(grade.id)>Delete</a>
 	
 	</body>
 </html>

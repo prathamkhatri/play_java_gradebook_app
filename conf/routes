@@ -12,6 +12,8 @@ GET		/adminHome							controllers.HomeController.adminHome
 GET		/stuHome							controllers.HomeController.stuHome
 
 # Grade routes start here
+
+GET	/studgrades			controllers.HomeController.studentmode
 	
 GET	/grades				controllers.HomeController.showAll()
 GET	/grades/create	controllers.HomeController.create

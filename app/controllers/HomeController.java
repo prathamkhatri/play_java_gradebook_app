@@ -4,6 +4,8 @@ import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.*;
 import views.html.*;
+
+import java.util.List;
 import java.util.Set;
 import javax.inject.Inject;
 
@@ -65,11 +67,18 @@ public class HomeController extends Controller {
     	return ok(views.html.adminHome.render());
     }
     
+    // student page
     public Result stuHome() {
     	
-    	return redirect("/grades");
+    	return redirect("/studgrades");
     }
     
+    public Result studentmode() {
+    	
+    	List<Grade> grades = Grade.find.all();
+    	return ok(views.html.studentmode.render(grades));
+    	
+    }
 
     
    //passing parameters
@@ -84,7 +93,7 @@ public class HomeController extends Controller {
     
     //for all grades 
     public Result showAll() {
-		Set<Grade> grades = Grade.allGrades();
+		List<Grade> grades = Grade.find.all();
 		return ok(views.html.showAll.render(grades));
     }
     
@@ -100,7 +109,7 @@ public class HomeController extends Controller {
     public Result save() {
     	Form<Grade> gradeForm = formFactory.form(Grade.class).bindFromRequest();
     	Grade grade = gradeForm.get();
-    	Grade.add(grade);
+    	grade.save();
 
 		
    	 	return redirect(routes.HomeController.showAll());
@@ -108,7 +117,7 @@ public class HomeController extends Controller {
     
     // edit single grade
     public Result edit(Integer id) {
-    	Grade grade = Grade.findById(id);
+    	Grade grade = Grade.find.byId(id);
     	if(grade == null) {
     		
     		return notFound("Grade ID not found");
@@ -122,7 +131,7 @@ public class HomeController extends Controller {
     	
     	Form<Grade> gradeForm = formFactory.form(Grade.class).bindFromRequest();
     	Grade grade = gradeForm.get();
-    	Grade oldGrade = Grade.findById(grade.id); 
+    	Grade oldGrade = Grade.find.byId(grade.id); 
     	if(oldGrade == null) {
     		
     		return notFound("Record not found, No changes made to the database");
@@ -132,27 +141,29 @@ public class HomeController extends Controller {
     	oldGrade.title = grade.title;
     	oldGrade.score = grade.score;
     	oldGrade.student = grade.student;
+    	
+    	oldGrade.save();
 
    	 	return redirect(routes.HomeController.showAll());
 
    }
     
     public Result destroy(Integer id) {
-    	Grade grade = Grade.findById(id);
+    	Grade grade = Grade.find.byId(id);
     	if(grade == null) {
    
     		return notFound("Record not found, No changes made to the database");
     		
     	}
-    	Grade.remove(grade);
+    	grade.delete();
 		
-   	 return TODO();
+    	return redirect(routes.HomeController.showAll());
    }
     
     // to show one grade details 
     
     public Result show(Integer id) {
-    	Grade grade = Grade.findById(id);
+    	Grade grade = Grade.find.byId(id);
     	if(grade == null) {
    
     		return notFound("Record not found");

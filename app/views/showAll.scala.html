@@ -10,10 +10,15 @@
 		
 		@for(grade <- grades) {
 		<a href="@routes.HomeController.show(grade.id)">Course: @grade.title</a>
-		<p>Name: @grade.student</p>
+		
+		<p>Student Name: @grade.student</p>
 		<p>Course ID: @grade.id</p>
-		<p>Course: @grade.title</p>
 		<p>Score: @grade.score</p>
+		<p>Professor Name: @grade.professor</p>
+		<p>Class: @grade.classroom</p>
+		<p>Semester: @grade.semester</p>
+		<p>Major: @grade.major</p>
+		<p>Number of Credits: @grade.credits</p>
 		<p><br></p>
 		}
 	

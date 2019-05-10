@@ -9,10 +9,17 @@
 		<h1>Create Grade</h1>
 		@helper.form(action = routes.HomeController.save) {
 		
+
+		
 			@helper.inputText(gradeForm("id"))
 			@helper.inputText(gradeForm("title"))
 			@helper.inputText(gradeForm("score"))
 			@helper.inputText(gradeForm("student"))
+			@helper.inputText(gradeForm("professor"))
+			@helper.inputText(gradeForm("classroom"))
+			@helper.inputText(gradeForm("semester"))
+			@helper.inputText(gradeForm("major"))
+			@helper.inputText(gradeForm("credit"))
 			
 			<input type= "submit" value = "Create Grade">
 		

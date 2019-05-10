@@ -56,13 +56,11 @@ create table grade (
   id                            integer auto_increment not null,
   title                         varchar(255),
   score                         double not null,
-  type                          varchar(255),
   student                       varchar(255),
   professor                     varchar(255),
   classroom                     varchar(255),
   semester                      varchar(255),
   major                         varchar(255),
-  credits                       integer,
   constraint pk_grade primary key (id)
 );
 

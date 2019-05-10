@@ -16,13 +16,11 @@ public class Grade extends Model {
 	public Integer id;
 	public String title;
 	public double score;
-	public String type;
 	public String student;
 	public String professor;
 	public String classroom;
 	public String semester;
 	public String major;
-	public Integer credits;
 	
 	
 	

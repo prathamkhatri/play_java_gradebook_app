@@ -1,0 +1,26 @@
+@(grades: List[Grade])
+
+<html>
+	<head>
+		<title>Hi Student</title>
+	</head>
+	<body>
+	
+		<h1>Student Mode</h1>
+		
+		
+		@for(grade <- grades) {
+		<p>Course: @grade.title</p>
+		<p>Student Name: @grade.student</p>
+		<p>Course ID: @grade.id</p>
+		<p>Score: @grade.score</p>
+		<p>Professor Name: @grade.professor</p>
+		<p>Class: @grade.classroom</p>
+		<p>Semester: @grade.semester</p>
+		<p>Major: @grade.major</p>
+		<p>Number of Credits: @grade.credits</p>
+		<p><br></p>
+		}
+	
+	</body>
+</html>

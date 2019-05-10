@@ -27,7 +27,7 @@ This example Play project was created from a seed template. It includes all Play
 
 To build and run the project:
 
-1. Use a command window to change into the example project directory, for example: `cd play-java-hello-world-web`
+1. Use a command window to change into the example project directory, for example: `cd play_java_gradebook_app`
 
 2. Build the project. Enter: `sbt run`. The project builds and starts the embedded HTTP server. Since this downloads libraries and dependencies, the amount of time required depends partly on your connection's speed.
 

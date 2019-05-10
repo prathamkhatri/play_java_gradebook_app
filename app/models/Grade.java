@@ -1,14 +1,26 @@
 package models;
 
 import java.util.HashSet;
-import java.util.Set;
 
-public class Grade {
+import java.util.Set;
+import io.ebean.Model;
+import javax.persistence.*;
+
+@Entity
+public class Grade extends Model {
 	
+	
+	@Id	
 	public Integer id;
 	public String title;
 	public double score;
 	public String student;
+	
+	
+	public Grade() {
+		
+		
+	}
 	
 	
 	public Grade(Integer id, String title, double score, String student) {
@@ -25,7 +37,7 @@ public class Grade {
 	
 	static {
 		grades = new HashSet<>();
-		grades.add(new Grade(410,"Intro to MYSQL",95.0,"Jack Hill"));
+		grades.add(new Grade(1,"Intro to MYSQL",95.0,"Jack Hill"));
 		grades.add(new Grade(410,"Intro to MYSQL",76.0,"Ronnie Packer"));
 
 	}

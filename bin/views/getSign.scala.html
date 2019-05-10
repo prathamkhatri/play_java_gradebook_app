@@ -3,12 +3,33 @@
 <html>
 	<head>
 	<title>Signin</title>
+	
 	</head>
-	<body>	
+	
+	<body>
+	<div style="position:absolute;top:250px;left:525px">
+	
+	
+	<center><h1>Gradebook app</h1></center>
+<center>
 	@helper.form(action=routes.HomeController.postSign()) {
 		@helper.inputText(userForm("username"))
-		@helper.inputText(userForm("password"))
+		@helper.inputPassword(userForm("password"))
 		<input type="submit" value="Login">
 	}
-	</body>	
+	
+	@if(flash.containsKey("danger")) {
+	
+		<div class="alert alert-danger">
+			@flash.get("danger")
+		
+	}
+	<div>
+	<a href="/stuHome">Student Mode (Are you a student?)</a>
+	</div>
+	</div>
+	</center>
+	
+	
+	</body>
 </html>

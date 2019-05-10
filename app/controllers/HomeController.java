@@ -26,12 +26,13 @@ public class HomeController extends Controller {
 	@Inject
 	FormFactory formFactory;
 	
+	// redirect to login page in the main page
     public Result index() {
-    	
     	return redirect("/sign");		
     }
    
      
+    // this is the sign in page
     public Result getSign(){
     	Form<User> userForm = formFactory.form(User.class);
     	return ok(getSign.render(userForm));
@@ -59,16 +60,9 @@ public class HomeController extends Controller {
     	
 	}
     
-    
-    
-    public Result errorPage() { 	
-    	
-    	return ok("this is the errorPage");
-    }
-    
     public Result adminHome() {
     	
-    	return ok("You are in admin Home page");
+    	return ok(views.html.adminHome.render());
     }
     
     public Result stuHome() {
@@ -76,13 +70,7 @@ public class HomeController extends Controller {
     	return redirect("/grades");
     }
     
-    public Result explore() {
-        return ok(views.html.explore.render());
-    }
-    
-    public Result tutorial() {
-        return ok(views.html.tutorial.render());
-    }
+
     
    //passing parameters
     public Result hello(Http.Request request) {
@@ -102,43 +90,78 @@ public class HomeController extends Controller {
     
     //create grade
     public Result create() {
+    	Form<Grade> gradeForm = formFactory.form(Grade.class);
+    	return ok(create.render(gradeForm));
 		
-   	 return TODO();
+   	
    }
     
     //save grade
     public Result save() {
+    	Form<Grade> gradeForm = formFactory.form(Grade.class).bindFromRequest();
+    	Grade grade = gradeForm.get();
+    	Grade.add(grade);
+
 		
-   	 return TODO();
+   	 	return redirect(routes.HomeController.showAll());
    }
     
-    
+    // edit single grade
     public Result edit(Integer id) {
-		
-   	 return TODO();
+    	Grade grade = Grade.findById(id);
+    	if(grade == null) {
+    		
+    		return notFound("Grade ID not found");
+    	}
+    	Form<Grade> gradeForm = formFactory.form(Grade.class);
+		return ok(edit.render(gradeForm));
    }
+    
     
     public Result update() {
-		
-   	 return TODO();
+    	
+    	Form<Grade> gradeForm = formFactory.form(Grade.class).bindFromRequest();
+    	Grade grade = gradeForm.get();
+    	Grade oldGrade = Grade.findById(grade.id); 
+    	if(oldGrade == null) {
+    		
+    		return notFound("Record not found, No changes made to the database");
+    		
+    	}
+    	oldGrade.id = grade.id;
+    	oldGrade.title = grade.title;
+    	oldGrade.score = grade.score;
+    	oldGrade.student = grade.student;
+
+   	 	return redirect(routes.HomeController.showAll());
+
    }
     
     public Result destroy(Integer id) {
+    	Grade grade = Grade.findById(id);
+    	if(grade == null) {
+   
+    		return notFound("Record not found, No changes made to the database");
+    		
+    	}
+    	Grade.remove(grade);
 		
    	 return TODO();
    }
     
-    // for grade details 
+    // to show one grade details 
     
     public Result show(Integer id) {
+    	Grade grade = Grade.findById(id);
+    	if(grade == null) {
+   
+    		return notFound("Record not found");
+    		
+    	}
+    	
 		
-   	 return TODO();
+   	 return ok(show.render(grade));
    }
-    
-    
-    
-    
-    
     
 
 }

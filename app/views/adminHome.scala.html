@@ -1,0 +1,53 @@
+
+@import helper._
+<html>
+	<head>
+	
+	<title>Admin</title>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+
+        <h1>Welcome Admin</h1>
+	@helper.form(action = routes.HomeController.showAll) {
+	
+			
+			<input type= "submit" value = "Show Grades">
+			}
+			
+			<br>
+			<br>
+			<br>
+	@helper.form(action = routes.HomeController.edit(1)) {
+	
+			<input type= "submit" value = "Update Grade">
+			}
+		<br>
+			<br>
+			<br>
+	@helper.form(action = routes.HomeController.create) {
+	
+			
+			<input type= "submit" value = "Create Grade">
+			}
+			<br>
+			<br>
+			<br>
+			
+	@helper.form(action = routes.HomeController.showAll) {
+	
+			
+			<input type= "submit" value = "Delete Grade">
+			}
+		
+		
+	
+	
+	</body>
+
+
+</html>

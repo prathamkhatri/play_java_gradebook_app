@@ -9,7 +9,9 @@
 		<h1>All Grades</h1>
 		
 		@for(grade <- grades) {
+		<a href="@routes.HomeController.show(grade.id)">Course: @grade.title</a>
 		<p>Name: @grade.student</p>
+		<p>Course ID: @grade.id</p>
 		<p>Course: @grade.title</p>
 		<p>Score: @grade.score</p>
 		<p><br></p>

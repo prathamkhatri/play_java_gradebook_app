@@ -1,0 +1,26 @@
+@(gradeForm: Form[Grade])
+@import helper._
+<html>
+	<head>
+		<title>Create Grade</title>
+	</head>
+	<body>
+	
+		<h1>Create Grade</h1>
+		@helper.form(action = routes.HomeController.save) {
+		
+			@helper.inputText(gradeForm("id"))
+			@helper.inputText(gradeForm("title"))
+			@helper.inputText(gradeForm("score"))
+			@helper.inputText(gradeForm("student"))
+			
+			<input type= "submit" value = "Create Grade">
+		
+		
+		}
+		
+		
+		
+	
+	</body>
+</html>

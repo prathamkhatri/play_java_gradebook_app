@@ -1,4 +1,4 @@
-name := """play-java-hello-world-web"""
+name := """play_java_gradebook_app"""
 organization := "com.example"
 
 version := "1.0-SNAPSHOT"

@@ -1,5 +1,5 @@
 # Gradebook App using the Play! framework for Java
-This project is the final project for ICSI 410 Introuduction to Databases
+This project is the final project for ICSI 410 Introduction to Databases
 
 A Simple CRUD application
 
@@ -35,3 +35,6 @@ To build and run the project:
 3. After the message `Server started, ...` displays, enter the following URL in a browser: <http://localhost:9000>
 
 Finally, this would run the app.
+
+Check out the demo screencast:
+https://www.screencast.com/t/7iapOXXZ

@@ -1,4 +1,10 @@
 # Gradebook App using the Play! framework for Java
+
+Group Members:
+Levidu Alahakoon github.com/levidu
+Amandeep Singh github.com/amansinghammy
+Pratham Rijal github.com/prathamkhatri 
+
 This project is the final project for ICSI 410 Introduction to Databases
 
 A Simple CRUD application for a gradebook app. Admins can perform all kinds CRUD task while student mode can only read the data.
